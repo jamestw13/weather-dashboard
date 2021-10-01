@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+			integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+			crossorigin="anonymous"
+		></script>
+
+		<title>Weather Dashboard</title>
+	</head>
+
+	<body class="flex-column min-100-vh">
+		<header class="hero">
+			<h1 class="app-title">Traveler's Weather Dashboard</h1>
+			<p>
+				Get the most out of your trip by getting ahead of the weather. Search your destinations and see what the sky has
+				in store for you.
+			</p>
+		</header>
+
+		<main class="flex-row justify-space-between">
+			<div class="col-12 col-md-4">
+				<div class="card">
+					<h3 class="card-header text-uppercase">City Search</h3>
+					<form action="" id="user-form" class="card-body">
+						<label for="destination" class="form-label">Your Destination</label
+						><input
+							type="text"
+							name="destination"
+							autofocus="true"
+							id="destination"
+							class="form-input"
+							placeholder="Nantucket"
+							value="Nantucket"
+						/><button class="btn" type="submit">What's the weather?</button>
+					</form>
+				</div>
+				<div class="card">
+					<h3 class="card-header text-uppercase">Your Search History</h3>
+					<div class="card-body" id="search-history"></div>
+				</div>
+			</div>
+			<div class="col-12 col-md-8">
+				<div>
+					<h2 class="subtitle">Current Conditions</h2>
+					<div id="current-container" class="list-group"></div>
+				</div>
+				<div>
+					<h2 class="subtitle">Five-Day Forecast</h2>
+					<div id="future-container" class="list-group"></div>
+				</div>
+			</div>
+		</main>
+		<script src="./assets/js/script.js"></script>
+	</body>
+</html>
