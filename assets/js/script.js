@@ -132,7 +132,7 @@ let getWeatherData = (destination) => {
 	destinationInputEl.value = "";
 
 	// API call to Mapquest to get latitude and longitude from generic place name
-	let latLngSearchApiUrl = `http://open.mapquestapi.com/geocoding/v1/address?key=${secrets.MAPQUESTAPIKEY}&location=${destination}`;
+	let latLngSearchApiUrl = `http://open.mapquestapi.com/geocoding/v1/address?key=pmTncUmE4WZvotxffzMXoDh0tdUGP9Vc&location=${destination}`;
 	fetch(latLngSearchApiUrl)
 		.then((resp1) => {
 			if (resp1.ok) {
@@ -154,7 +154,7 @@ let getWeatherData = (destination) => {
 
 						// Nested API call
 						// API call to OpenWeather using latitude and longitude
-						var weatherSearchApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely,hourly,alerts&units=imperial&appid=${secrets.OPENWEATHERAPIKEY}`;
+						var weatherSearchApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely,hourly,alerts&units=imperial&appid=50357db12d6b05e74bc14dbfe097e5cb`;
 						fetch(weatherSearchApiUrl).then((resp2) => {
 							if (resp2.ok) {
 								resp2.json().then((data) => {
