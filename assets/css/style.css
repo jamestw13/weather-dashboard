@@ -94,7 +94,7 @@ p {
 }
 
 .hero {
-	padding: 3% 4%;
+	padding: 2% 4%;
 	background-color: var(--dark);
 	color: var(--primary);
 }
@@ -131,25 +131,11 @@ p {
 	background-color: var(--dark);
 }
 
-.status-icon {
-	padding: 2px 5px;
-	margin: 0 5px;
-	background-color: rgba(255, 255, 255, 1);
-	border-radius: var(--border-radius);
-}
-
-.icon-danger {
-	color: rgb(255, 70, 70);
-}
-
-.icon-success {
-	color: rgb(29, 153, 255);
-}
-
 .subtitle {
 	text-align: center;
 	margin: 20px;
 }
+
 .weather-tile {
 	background-color: var(--secondary);
 	margin: 10px;

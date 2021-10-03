@@ -132,7 +132,7 @@ let getWeatherData = (destination) => {
 	destinationInputEl.value = "";
 
 	// API call to Mapquest to get latitude and longitude from generic place name
-	let latLngSearchApiUrl = `http://open.mapquestapi.com/geocoding/v1/address?key=pmTncUmE4WZvotxffzMXoDh0tdUGP9Vc&location=${destination}`;
+	let latLngSearchApiUrl = `https://open.mapquestapi.com/geocoding/v1/address?key=pmTncUmE4WZvotxffzMXoDh0tdUGP9Vc&location=${destination}`;
 	fetch(latLngSearchApiUrl)
 		.then((resp1) => {
 			if (resp1.ok) {
