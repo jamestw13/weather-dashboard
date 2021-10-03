@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
+		<!-- <link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
 		/>
@@ -19,8 +19,8 @@
 		<link
 			href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"
 			rel="stylesheet"
-		/>
-
+		/> -->
+		<link rel="stylesheet" href="./assets/css/style.css" />
 		<title>Weather Dashboard</title>
 	</head>
 
@@ -45,7 +45,7 @@
 							autofocus="true"
 							id="destination"
 							class="form-input"
-							placeholder="Nantucket"
+							placeholder="Region, City, Landmark, or other Location"
 							value="Nantucket"
 						/><button class="btn" type="submit">What's the weather?</button>
 					</form>
@@ -56,16 +56,27 @@
 				</div>
 			</div>
 			<div class="col-12 col-md-8">
-				<div>
-					<h2 class="subtitle">Current Conditions</h2>
-					<div id="current-container" class="list-group"></div>
-				</div>
-				<div>
-					<h2 class="subtitle">Five-Day Forecast</h2>
-					<div id="future-container" class="list-group"></div>
+				<div class="card">
+					<h3 class="card-header text-uppercase" id="weather-header">
+						The Weather Outlook<span id="city-name"></span>
+					</h3>
+					<div>
+						<h3 class="subtitle">Current Conditions</h3>
+						<div id="current-container" class="list-group"></div>
+					</div>
+					<div>
+						<h3 class="subtitle">Five-Day Forecast</h3>
+						<div id="future-container" class="list-group"></div>
+					</div>
 				</div>
 			</div>
 		</main>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+			integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
 		<script src="./assets/js/script.js"></script>
 	</body>
 </html>
