@@ -1,9 +1,10 @@
 :root {
-	--primary: #ccdad1;
-	--secondary: #9caea9;
-	--tertiary: #788585;
-	--light-dark: #6f6866;
-	--dark: #38302e;
+	--primary: #d5ecfb;
+	--secondary: #89cdfb;
+	--tertiary: #6da3c7;
+	--light-dark: #68737a;
+	--dark: #43647a;
+
 	--border-radius: 0.3rem;
 }
 
@@ -145,8 +146,16 @@ p {
 	color: rgb(29, 153, 255);
 }
 
+.subtitle {
+	text-align: center;
+	margin: 20px;
+}
 .weather-tile {
+	background-color: var(--secondary);
 	margin: 10px;
+	padding: 10px;
+	border-radius: var(--border-radius);
+	border: 2px solid var(--dark);
 }
 
 #current-container {
@@ -159,33 +168,43 @@ p {
 	justify-content: center;
 }
 
+#uvi-span {
+	padding: 3px 20px;
+	border-radius: 3px;
+}
+
 #uvi-span[data-index="0"],
 #uvi-span[data-index="1"],
 #uvi-span[data-index="2"] {
 	background-color: green;
+	color: var(--primary);
 }
 
 #uvi-span[data-index="3"],
 #uvi-span[data-index="4"],
 #uvi-span[data-index="5"] {
 	background-color: yellow;
+	color: var(--dark);
 }
 
 #uvi-span[data-index="6"],
 #uvi-span[data-index="7"] {
 	background-color: orange;
+	color: var(--dark);
 }
 
 #uvi-span[data-index="8"],
 #uvi-span[data-index="9"],
 #uvi-span[data-index="10"] {
 	background-color: red;
+	color: var(--primary);
 }
 
 #uvi-span[data-index="11"],
 #uvi-span[data-index="12"],
 #uvi-span[data-index="13"] {
 	background-color: purple;
+	color: var(--primary);
 }
 
 /* CARDS */
