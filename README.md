@@ -14,6 +14,9 @@ The purpose of this project is to create a dashboard to see the weather outook o
   - [x] The site will display a five-day forecast, date, weather condition icon, temperature, wind speed, and humidity
 - [x] Clicking on a city in the search history will re-display that city's weather conditionsour initials and score
 
+### Notes
+- Search history saves the 10 most recent searches
+
 ### Resources
 - This will be implemented with nested API calls
   - [Mapquest OpenGeoCodingAPI](http://open.mapquestapi.com/geocoding/v1/address)
@@ -21,10 +24,12 @@ The purpose of this project is to create a dashboard to see the weather outook o
 - The OpenWeather One Call API requires a latitude and longitude, not a placename
 - The Mapquest API has a robust database for making very generic place searches and return a latitude and longitude
 
+- [Moment JS](momentjs.com)
+
 ## Links
 
 ### [Click here to go to the live deployment](https://jamestw13.github.io/weather-dashboard/)
 
 TODO:
-![Screenshot]()
+![Screenshot](https://github.com/jamestw13/weather-dashboard/blob/main/weather-dashboard-screenshot.png)
 
