@@ -145,10 +145,47 @@ p {
 	color: rgb(29, 153, 255);
 }
 
+.weather-tile {
+	margin: 10px;
+}
+
+#current-container {
+	display: flex;
+	justify-content: center;
+}
+
+#future-container {
+	display: flex;
+	justify-content: center;
+}
+
 #uvi-span[data-index="0"],
 #uvi-span[data-index="1"],
 #uvi-span[data-index="2"] {
 	background-color: green;
+}
+
+#uvi-span[data-index="3"],
+#uvi-span[data-index="4"],
+#uvi-span[data-index="5"] {
+	background-color: yellow;
+}
+
+#uvi-span[data-index="6"],
+#uvi-span[data-index="7"] {
+	background-color: orange;
+}
+
+#uvi-span[data-index="8"],
+#uvi-span[data-index="9"],
+#uvi-span[data-index="10"] {
+	background-color: red;
+}
+
+#uvi-span[data-index="11"],
+#uvi-span[data-index="12"],
+#uvi-span[data-index="13"] {
+	background-color: purple;
 }
 
 /* CARDS */
