@@ -132,59 +132,67 @@ let getWeatherData = (destination) => {
 	destinationInputEl.value = "";
 
 	// API call to Mapquest to get latitude and longitude from generic place name
-	let latLngSearchApiUrl = `http://open.mapquestapi.com/geocoding/v1/address?key=pmTncUmE4WZvotxffzMXoDh0tdUGP9Vc&location=${destination}`;
-	fetch(latLngSearchApiUrl).then((resp1) => {
-		if (resp1.ok) {
-			resp1.json().then((geoData) => {
-				let lat = geoData.results[0].locations[0].latLng.lat;
-				let lng = geoData.results[0].locations[0].latLng.lng;
-				let city = geoData.results[0].locations[0].adminArea5;
-				let state = geoData.results[0].locations[0].adminArea3;
-				let country = geoData.results[0].locations[0].adminArea1;
+	let latLngSearchApiUrl = `http://open.mapquestapi.com/geocoding/v1/address?key=${secrets.MAPQUESTAPIKEY}&location=${destination}`;
+	fetch(latLngSearchApiUrl)
+		.then((resp1) => {
+			if (resp1.ok) {
+				resp1.json().then((geoData) => {
+					let lat = geoData.results[0].locations[0].latLng.lat;
+					let lng = geoData.results[0].locations[0].latLng.lng;
+					let city = geoData.results[0].locations[0].adminArea5;
+					let state = geoData.results[0].locations[0].adminArea3;
+					let country = geoData.results[0].locations[0].adminArea1;
 
-				if (!city || !state || !country) {
-					alert(
-						"Your destination search may be too broad. Please enter more specific location information for results."
-					);
-				} else {
-					// update destination variable with validated search string
-					let destination = `${city}, ${state} ${country}`;
-					// API call to OpenWeather using latitude and longitude
-					var weatherSearchApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely,hourly,alerts&units=imperial&appid=50357db12d6b05e74bc14dbfe097e5cb`;
-					fetch(weatherSearchApiUrl).then((resp2) => {
-						if (resp2.ok) {
-							resp2.json().then((data) => {
-								// Display city name in header
-								cityNameEl.innerHTML = ` for: ${destination}`;
+					// Check that destination is specific enough to return a city, state and country identifier
+					if (!city || !state || !country) {
+						alert(
+							"Your destination search may be too broad. Please enter more specific location information for results."
+						);
+					} else {
+						// update destination variable with validated search string
+						let destination = `${city}, ${state} ${country}`;
 
-								// Send weather data to display functions
-								displayWeatherData(data);
+						// Nested API call
+						// API call to OpenWeather using latitude and longitude
+						var weatherSearchApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely,hourly,alerts&units=imperial&appid=${secrets.OPENWEATHERAPIKEY}`;
+						fetch(weatherSearchApiUrl).then((resp2) => {
+							if (resp2.ok) {
+								resp2.json().then((data) => {
+									// Display city name in header
+									cityNameEl.innerHTML = ` for: ${destination}`;
 
-								// Save destination to localStorage
-								// Add to front of search history array
-								destinationSearchHistory.unshift(destination);
-								// Remove repeated searches from history
-								destinationSearchHistory = [...new Set(destinationSearchHistory)];
+									// Send weather data to display functions
+									displayWeatherData(data);
 
-								// Limit of 10 searches in history - pop extra
-								while (destinationSearchHistory.length > 10) {
-									destinationSearchHistory.pop();
-								}
+									// Save destination to localStorage
+									// Add to front of search history array
+									destinationSearchHistory.unshift(destination);
+									// Remove repeated searches from history
+									destinationSearchHistory = [...new Set(destinationSearchHistory)];
 
-								// Update search history Bar
-								updateSearchHistoryBar();
+									// Limit of 10 searches in history - pop extra
+									while (destinationSearchHistory.length > 10) {
+										destinationSearchHistory.pop();
+									}
 
-								// Update localstorage
-								localStorage.setItem("destinationSearchHistory", JSON.stringify(destinationSearchHistory));
-							});
-						}
-					});
-				}
-			});
-		}
-		// TODO: fetch error handling
-		// else {}
-	});
+									// Update search history Bar
+									updateSearchHistoryBar();
+
+									// Update localstorage
+									localStorage.setItem("destinationSearchHistory", JSON.stringify(destinationSearchHistory));
+								});
+							}
+						});
+					}
+				});
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+			alert(
+				"There was an issue with getting your information. The data service might be down. Please check your internet connection and try again in a few minutes."
+			);
+		});
 };
 
 // Update search history bar
